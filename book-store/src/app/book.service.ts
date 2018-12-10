@@ -9,7 +9,7 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
   providedIn: 'root'
 })
 export class BookService {
-bookList AngularFireList<any>;
+bookList: AngularFireList<any>;
 selectedBook: Book = new Book();
   constructor(private db : AngularFireDatabase) { }
 

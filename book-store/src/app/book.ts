@@ -4,6 +4,7 @@ export class Book {
  description: string;
  image: string;
  name: string;
+ price: number;
  quantity: number;
  rating: number;
  $key: string;

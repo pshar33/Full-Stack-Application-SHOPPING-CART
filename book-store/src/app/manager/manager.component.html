@@ -1,0 +1,27 @@
+<form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
+<div class="form-group">
+<label>Name</label>
+<input class="form-control" name="name" #name="ngModel" [(ngModel)]="bookService.selectedBook.name" placeholder="Book name">
+</div>
+<div class="form-group">
+<label>Decsription</label>
+<input class="form-control" name="description" #description="ngModel" [(ngModel)]="bookService.selectedBook.description" placeholder="Book description">
+</div>
+<div class="form-group">
+<label>Availability</label>
+<input class="form-control" name="availability" #availability="ngModel" [(ngModel)]="bookService.selectedBook.availability" placeholder="availability">
+</div>
+<div class="form-group">
+<label>Quantity</label>
+<input class="form-control" name="quantity" #quantity="ngModel" [(ngModel)]="bookService.selectedBook.quantity" placeholder="quantity">
+</div>
+<div class="form-group">
+<label>Price</label>
+<input class="form-control" name="price" #price="ngModel" [(ngModel)]="bookService.selectedBook.price" placeholder="price">
+</div>
+<div class="form-group">
+<button class="btn btn-default" type="submit">Submit</button>
+<button class="btn btn-default" type="button" (click)="resetForm(bookForm)">Reset</button>
+
+</div>
+</form>

@@ -35,8 +35,8 @@ books: Book[];
 onSelect(book: Book): void {
   this.selectedBook = book;
 }
-getBooks(): void {
- this.bookService.getBooks()
-     .subscribe(books => this.books = books);  }
+//getBooks(): void {
+ //this.bookService.getBooks()
+   //  .subscribe(books => this.books = books);  }
 
 }

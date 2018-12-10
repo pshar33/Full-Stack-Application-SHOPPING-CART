@@ -13,13 +13,15 @@ import {environment} from '../environments/environment'
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LoginComponent } from './login/login.component';
+import { ManagerComponent } from './manager/manager.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
     BookDetailComponent,
-    LoginComponent
+    LoginComponent,
+    ManagerComponent
     
   ],
   imports: [
