@@ -15,20 +15,20 @@ export class ManagerComponent implements OnInit {
   }     
 
   onSubmit(bookForm : NgForm){       
-  
-  }     
-
-  resetForm(bookForm? : NgForm){
+          
+  }          
+       
+  resetForm(bookForm? : NgForm){    
   if(bookForm != null){    
-  bookForm.reset();      
+  bookForm.reset();           
   this. bookService.selectedBook = {   
     $key : null,
-    name : '',   
+    name : '',          
     description : '',
-    availability : 0,   
-    quantity : 0,          
-    price : 0
-
+    availability : 0,       
+    quantity : 0,             
+    price : 0        
+          
 
   }
   }
