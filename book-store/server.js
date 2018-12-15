@@ -3,7 +3,7 @@ var app= express();
 app.use('/', express.static('static'));
 var mongoose = require('mongoose');
 var db = mongoose.connection;
-var ItemDetails = require('./product');
+var prodDet = require('./product');
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
     extended: true
@@ -27,10 +27,9 @@ app.use(cors(corsOptions))
 
 
 
-//Get Data from MongoDB
 app.get('/Items', function (req, res) {
 
-  var products = ItemDetails.find(function (err, products) {
+  var products = prodDet.find(function (err, products) {
       if (err) {
           res.send(err);
       }
@@ -39,17 +38,13 @@ app.get('/Items', function (req, res) {
   });
 })
 
-//Function to insert rows
 app.post('/add', function (req, res) {
-  // console.log(req.body);
-   var addImage = new ItemDetails();
-   addImage.description = req.body.description;
-   addImage.availability = "5";
-   addImage.tax = "0.13";
-   addImage.price = "600";
-   addImage.quantity = "1";
+   var newprod = new prodDet();
+   newprod.name = req.body.name;
+   newprod.price = req.body.price;
+   newprod.quantity = req.body.quantity;
 
-   addImage.save(function (err) {
+   newprod.save(function (err) {
        if (err) {
            res.send(err);
        }
@@ -62,7 +57,7 @@ app.put('/update', function (req, res) {
   var itemtoupdate = req.body.description;
   var qtytoupdate = req.body.quantity;
   var newvalues = { $set: { 'availability': qtytoupdate } };
-  var c = ItemDetails.updateOne({ 'description': itemtoupdate }, newvalues, function (err, c) {
+  var c = prodDet.updateOne({ 'description': itemtoupdate }, newvalues, function (err, c) {
       if (err) {
           res.send(err);
       }

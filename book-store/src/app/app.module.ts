@@ -18,6 +18,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClient, Headers, RequestOptions } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
+
 @NgModule({
   declarations: [
     AppComponent,

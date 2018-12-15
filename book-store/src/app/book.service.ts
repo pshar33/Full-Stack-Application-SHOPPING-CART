@@ -23,20 +23,26 @@ selectedBook: Book = new Book();
  
   });
   }
+  /*
+  insertBook(book: Book){
+  this.http.post('http://localhost:8080/add',
+  { name : book.name },
+  { price : book.price },
+  { quantity : book.quantity }).subscribe(
+    res=> {
+      console.log(res);
+    },
+    err=> {
+      console.log('error occured');
+    }
 
-  /*insertBook(book: Book){
-  this.bookList.push({
- availability: book.availability,
- comments: book.comments,
- description: book.description,
- image: book.image,
- name: book.name,
- quantity: book.quantity,
- rating: book.rating
- 
-    });
+    );
+    console.log( this.newBook + 'added to the database !!');
+
   }
-
+  
+  }
+  
   updateBook(book: Book){
     this.bookList.update(book.$key,{
  availability: book.availability,

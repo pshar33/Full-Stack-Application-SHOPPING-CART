@@ -40,14 +40,14 @@ password: String;
                         console.log('Error sending the Verification Email !!')
                     });
             });
-
+}
             oldUser(username,password){
             debugger;
         this.authorize.auth.signInWithEmailAndPassword(username, password)
             .then((user) => {
+            this.exist = user
 
          const verifieduser = firebase.auth().currentUser;
-            this.exist = user
                      if (verifieduser.emailVerified) {
                     this.routing.navigate(['/authenticated-user']);
                     console.log('Login successful !!');

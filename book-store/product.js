@@ -5,11 +5,11 @@ var Schema = new Schema({
 name : {type: String},
 image : {type: String},
 description : {type: String},
-availability : {type: number},
+//availability : {type: number},
 //rating: {type: number};
 //comments: {type: String},
-price : {type: number},
-quantity : {type: number},
+price : {type: String},
+quantity : {type: String},
 //$key: {type: String};
 
 
