@@ -52,7 +52,34 @@ app.post('/add', function (req, res) {
    })
 
 });
+/*
+app.get('/getreview', function (req, res) {
 
+  var products = prodDet.find(function (err, products) {
+      if (err) {
+          res.send(err);
+      }
+      res.send(products);
+      console.log(products);
+  });
+})
+
+app.post('/addreview', function (req, res) {
+   var newprod = new prodDet();
+   newprod.rating = req.body.rating;
+   newprod.review = req.body.review;
+   
+
+   newprod.save(function (err) {
+       if (err) {
+           res.send(err);
+       }
+       res.send({ message: 'Product Reviewed !' })
+   })
+
+});
+
+*/
 app.put('/update', function (req, res) {
   var itemtoupdate = req.body.description;
   var qtytoupdate = req.body.quantity;

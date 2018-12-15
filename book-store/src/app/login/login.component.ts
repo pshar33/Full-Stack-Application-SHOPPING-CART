@@ -20,7 +20,7 @@ password: String;
 
   constructor(private authorize: AngularFireAuth, private routing: Router) {
   this.authorize.authState.subscribe((auth) => {
-            this.state = auth
+            this.exist = auth
   });
   }
   ngOnInit() {

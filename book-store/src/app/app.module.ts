@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { BooksComponent } from './books/books.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
-//import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire';
 import {environment} from '../environments/environment'
@@ -18,6 +17,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClient, Headers, RequestOptions } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
+import { OneproductComponent } from './oneproduct/oneproduct.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,8 @@ import { AuthenticatedUserComponent } from './authenticated-user/authenticated-u
     BookDetailComponent,
     LoginComponent,
     ManagerComponent,
-    AuthenticatedUserComponent
+    AuthenticatedUserComponent,
+    OneproductComponent
     
   ],
   imports: [

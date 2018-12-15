@@ -1,1 +1,37 @@
-<p>Welcome user  </p>
+ <section class="panel panel-default">
+              <div class="panel-heading">
+<h2 class="panel-title">
+                  Featured Products
+                </h2>
+</div>
+<div class="panel-body">
+<div class="col-md-4" *ngFor="let book of books">
+
+<div class="panel">
+
+<div class="panel-footer" style="padding: 1px 9px;">
+<div class="row">
+<div class="col-md-12">
+<h5>
+{{book.description}}</h5>
+</div>
+</div>
+<div class="col-md-12">
+<button routerLink="/oneproduct">View product</button>
+</div>
+<div class="col-md-12">
+<h5>
+{{book.image}}</h5>
+</div>
+
+<div class="col-md-4">
+<h6 class="price" style="text-align: right;">
+                            {{book.price}}
+                          </h6>
+</div>
+</div>
+</div>
+</div>
+</div></section>
+
+<router-outlet></router-outlet>

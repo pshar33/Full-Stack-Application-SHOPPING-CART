@@ -26,7 +26,7 @@ selectedBook: Book = new Book();
   /*
   insertBook(book: Book){
   this.http.post('http://localhost:8080/add',
-  { name : book.name },
+  { description : book.description },
   { price : book.price },
   { quantity : book.quantity }).subscribe(
     res=> {

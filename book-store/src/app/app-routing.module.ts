@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { ManagerComponent } from './manager/manager.component';
 import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
+import { OneproductComponent } from './oneproduct/oneproduct.component';
 
 const routes : Routes=[
 { path : '', redirectTo: '/books', pathMatch: 'full'},
@@ -14,7 +15,7 @@ const routes : Routes=[
 { path : 'login', component: LoginComponent },
 { path : 'authenticated-user', component: AuthenticatedUserComponent },
 { path : 'manager', component: ManagerComponent }
-
+{ path : 'oneproduct', component: OneproductComponent }
 
 ];
 

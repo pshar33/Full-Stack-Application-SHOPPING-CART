@@ -7,14 +7,15 @@ import { BookService   } from '../book.service';
   styleUrls: ['./manager.component.css']
 })
 export class ManagerComponent implements OnInit {
-      
+     username: String;
+password: String; 
   constructor(private bookService: BookService) { }
             
   ngOnInit() {
 
   }     
 
-  onSubmit(){       
+  insertBook(){       
           
   }          
        

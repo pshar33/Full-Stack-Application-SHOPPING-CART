@@ -12,5 +12,22 @@
 </div>      
 <div >       
 <button  type="submit" (click)="onSubmit()">Submit</button>           
-             
+
+
+<table>
+  <tr ng-repeat="book in MyData">
+    <td>{{ book.name }}</td>
+    <td>{{ book.price }}</td>
+    <td>{{ book.quantity }}</td>
+    <td><button  type="submit" (click)="onSubmit()">Update</button></td>
+    <td><button  type="submit" (click)="onSubmit()">Delete</button></td>
+  </tr>
+</table>
 </div>    
+<div>
+<label>Username</label>
+<input type="email" [(ngModel)]="username" required>
+
+</div>
+
+<button type= "submit"  (click)="disableuser(username)">Disable user</button>
