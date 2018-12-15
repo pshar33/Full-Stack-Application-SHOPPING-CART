@@ -4,12 +4,16 @@ import { BooksComponent }      from './books/books.component';
 import { BookDetailComponent }      from './book-detail/book-detail.component';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ManagerComponent } from './manager/manager.component';
+import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
 
 const routes : Routes=[
 { path : '', redirectTo: '/books', pathMatch: 'full'},
 { path : 'books', component: BooksComponent },
 { path : 'book-detail', component: BookDetailComponent },
-{ path : 'login', component: LoginComponent }
+{ path : 'login', component: LoginComponent },
+{ path : 'authenticated-user', component: AuthenticatedUserComponent },
+{ path : 'manager', component: ManagerComponent }
 
 
 ];

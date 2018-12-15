@@ -1,10 +1,11 @@
 <button routerLink="/login">Login</button>
-
-<ul class="books">
-  <li  *ngFor="let book of books"   (click)="onSelect(book)">
   
 
-     <span class="badge">{{book.name}}</span>
+<ul class="books">
+  <li  *ngFor="let book of books"  (click)="onSelect(book)">
+  
+
+     <span class="badge">{{book.description}}</span>
      <img src="{{book.image}}" height="120" width="180">
   </li>
 </ul>

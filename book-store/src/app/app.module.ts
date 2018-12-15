@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -14,18 +14,23 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { LoginComponent } from './login/login.component';
 import { ManagerComponent } from './manager/manager.component';
-
+import { HttpClient } from '@angular/common/http';
+import { HttpClient, Headers, RequestOptions } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthenticatedUserComponent } from './authenticated-user/authenticated-user.component';
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
     BookDetailComponent,
     LoginComponent,
-    ManagerComponent
+    ManagerComponent,
+    AuthenticatedUserComponent
     
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     FormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.config),

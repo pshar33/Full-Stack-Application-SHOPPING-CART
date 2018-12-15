@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+
+import * as firebase from 'firebase/app';
+
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -6,12 +12,57 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-successMessage: String = 'Test';
-errorMessage: String = 'Test';
 
-  constructor() { }
+username: String;
+password: String;
+ exist: any = null;
 
+
+  constructor(private authorize: AngularFireAuth, private routing: Router) {
+  this.authorize.authState.subscribe((auth) => {
+            this.state = auth
+  });
+  }
   ngOnInit() {
   }
+
+  newUser(username,password){
+  
+          firebase.auth().createUserWithEmailAndPassword(username, password)
+                    .then(res => {
+                firebase.auth().signInWithEmailAndPassword(username, password)
+                    .then((user) => {
+                        const email = firebase.auth().currentUser;
+                        email.sendEmailVerification();
+                        console.log('Verification mail sent to ' + email.uid + '!!');
+                    })
+                    .catch(err => {
+                        console.log('Error sending the Verification Email !!')
+                    });
+            });
+
+            oldUser(username,password){
+            debugger;
+        this.authorize.auth.signInWithEmailAndPassword(username, password)
+            .then((user) => {
+
+         const verifieduser = firebase.auth().currentUser;
+            this.exist = user
+                     if (verifieduser.emailVerified) {
+                    this.routing.navigate(['/authenticated-user']);
+                    console.log('Login successful !!');
+                }
+                else {
+                    console.log('Error occured !!')
+                }
+            })
+
+
+            .catch(err => {
+                console.log('Click on Signup first !!');
+            });
+    }
+    }
+
 
 }

@@ -4,22 +4,27 @@ import { Book } from './book';
 import { Observable, of } from 'rxjs';
 //import { MessageService } from './message.service';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
+import { HttpClient } from '@angular/common/http';
+import { HttpClient, Headers, RequestOptions } from '@angular/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
+data:any;
 bookList: AngularFireList<any>;
 selectedBook: Book = new Book();
-  constructor(private db : AngularFireDatabase) { }
+  constructor(private http: HttpClient) { }
 
   getBooks(){
     
-  this.bookList = this.db.list('book-details');
-  return this.bookList;
+ return this.http.get("http://localhost:8080/Items");
+ 
+  });
   }
 
-  insertBook(book: Book){
+  /*insertBook(book: Book){
   this.bookList.push({
  availability: book.availability,
  comments: book.comments,
@@ -47,4 +52,5 @@ selectedBook: Book = new Book();
   deleteBook($key : string){
   this.bookList.remove($key);
   }
+  */
 }
