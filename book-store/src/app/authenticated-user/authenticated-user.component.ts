@@ -9,14 +9,42 @@ import { BookService   } from '../book.service';
 })
 export class AuthenticatedUserComponent implements OnInit {
 books: Book[];
+selectedprod :Array<{description: String ,price:String,quantity: String}>=[];
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
    this.bookService.getBooks()
      .subscribe(books => {this.books = books});
        
-     
+    
   
   }
+   selectedBook: Book;
+onSelect(book: Book): void {
+  this.selectedBook = book;
+}
 
+addBook(book){
+this.selectedprod.push({description:book.description, price:book.price,quantity:book.quantity});
+}
+
+
+removeCartItem(book: selectedprod) {
+        book.delete();
+    }
+    
+    increaseCartItemQuantity(book: selectedprod){
+        book.quantity = parseInt(book.quantity) + 1;
+        
+
+        
+    }
+
+    decreaseCartItemQuantity(book: selectedprod) {
+        book.quantity = book.quantity - 1;
+        
+
+        
+    }
+    
 }

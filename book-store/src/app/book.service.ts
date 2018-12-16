@@ -27,10 +27,4 @@ selectedBook: Book = new Book();
   
   }
   
-  
-  /*
-  deleteBook($key : string){
-  this.bookList.remove($key);
-  }
-*/  
 }

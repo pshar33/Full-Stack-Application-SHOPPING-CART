@@ -1,4 +1,4 @@
- <section class="panel panel-default">
+ <!--<section class="panel panel-default">
               <div class="panel-heading">
 <h2 class="panel-title">
                   Featured Products
@@ -9,7 +9,7 @@
 
 <div class="panel">
 
-<div class="panel-footer" style="padding: 1px 9px;">
+<div class="panel-footer" style="padding: 1px 2px;">
 <div class="row">
 <div class="col-md-12">
 <h5>
@@ -20,18 +20,82 @@
 
 </div>
 <div class="col-md-12">
-<h5>
-{{book.image}}</h5>
+<img src="{{book.image}}" height="120" width="180">
 </div>
 
+<div class="col-md-12" style="text-align: center;">
+<input type="text" [(ngModel)]="book.quantity" value="{{book.quantity}}"/>
+</div>
+
+<!--<div class="col-md-12">
+<ul class="ratings">
+  <li  *ngFor="let rating of ratings">
+  
+
+     <span class="badge">{{book.ratings}}</span>
+     
+  </li>
+</ul></div>
+
+<div class="col-md-12">
+<ul class="comments">
+  <li  *ngFor="let comment of comments">
+  
+
+     <span class="badge">{{book.comments}}</span>
+     
+  </li>
+</ul></div>
 <div class="col-md-4">
 <h6 class="price" style="text-align: right;">
                             {{book.price}}
                           </h6>
 </div>
+<div class="col-md-4">
+<button type="submit" (click)="addcart()">ADD TO CART</button>
 </div>
 </div>
 </div>
-</div></section>
-<!--<app-oneproduct [book]="selectedBook"></app-oneproduct>-->
+</div>
+</div></section>-->
+<table >
+    <tr>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Net Price</th>
+        <th></th>
+    </tr>
+    <tr *ngFor='let book of books' (click)="onSelect(book)">
+    <td>{{book.description}}</td>
+        <td><input type="text" [(ngModel)]="book.quantity" value="{{book.quantity}}"/></td>
+        <td>{{book.price}}</td>
+        <td>{{book.price * book.quantity}}</td>
+        <td>
+            <button (click)="addBook(book)">ADD</button>
+        </td>
+    </tr>
+</table>
+<table >
+    <tr>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Net Price</th>
+        <th></th>
+    </tr>
+    <tr *ngFor='let book of selectedprod'>
+        <td>{{book.description}}</td>
+        <td><input type="text" [(ngModel)]="book.quantity" value="{{book.quantity}}"/></td>
+        <td>{{book.price}}</td>
+        <td>{{book.price * book.quantity}}</td>
+        <td>
+            <button (click)="increaseCartItemQuantity(book)">+</button>
+            <button (click)="decreaseCartItemQuantity(book)">-</button>
+            <button (click)="removeCartItem(book)">Delete</button>
+        </td>
+    </tr>
+</table>
+
+<app-oneproduct [book]="selectedBook"></app-oneproduct>
 <router-outlet></router-outlet>

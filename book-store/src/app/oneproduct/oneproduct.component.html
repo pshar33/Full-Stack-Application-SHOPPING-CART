@@ -1,3 +1,13 @@
-<p>
-  oneproduct works!
-</p>
+<h2>{{book.description | uppercase}} Details</h2>
+  <div><span>description: </span>{{book.description}}</div>
+  <div><span>price: </span>{{book.price}}</div>
+<div>
+<label>Give Ratings</label>
+<input type="number" [(ngModel)]="ratings" required>
+
+</div>
+<div>
+<label>Give Review</label>
+<input type="text"  [(ngModel)]="comments" required>
+
+</div>
