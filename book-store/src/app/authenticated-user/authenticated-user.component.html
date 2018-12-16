@@ -5,7 +5,7 @@
                 </h2>
 </div>
 <div class="panel-body">
-<div class="col-md-4" *ngFor="let book of books">
+<div class="col-md-4" *ngFor="let book of books" (click)="onSelect(book)">
 
 <div class="panel">
 
@@ -17,7 +17,7 @@
 </div>
 </div>
 <div class="col-md-12">
-<button routerLink="/oneproduct">View product</button>
+
 </div>
 <div class="col-md-12">
 <h5>
@@ -33,5 +33,5 @@
 </div>
 </div>
 </div></section>
-
+<!--<app-oneproduct [book]="selectedBook"></app-oneproduct>-->
 <router-outlet></router-outlet>

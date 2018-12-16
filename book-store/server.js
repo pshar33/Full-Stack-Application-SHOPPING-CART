@@ -34,13 +34,14 @@ app.get('/Items', function (req, res) {
           res.send(err);
       }
       res.send(products);
-      console.log(products);
+      //console.log(products);
   });
 })
 
 app.post('/add', function (req, res) {
+
    var newprod = new prodDet();
-   newprod.name = req.body.name;
+   newprod.description = req.body.description;
    newprod.price = req.body.price;
    newprod.quantity = req.body.quantity;
 
@@ -81,15 +82,30 @@ app.post('/addreview', function (req, res) {
 
 */
 app.put('/update', function (req, res) {
+//console.log('hi');
+//console.log(req.body._id);
+
   var itemtoupdate = req.body.description;
   var qtytoupdate = req.body.quantity;
-  var newvalues = { $set: { 'availability': qtytoupdate } };
+  var updateprice=req.body.price;
+  var newvalues = { $set: { 'price': updateprice,'quantity': qtytoupdate } };
   var c = prodDet.updateOne({ 'description': itemtoupdate }, newvalues, function (err, c) {
       if (err) {
           res.send(err);
       }
       res.send({ message: 'Item Updated !' })
   })
+});
+
+app.post('/delete', function (req, res){
+console.log('del');
+var itemtodelete = req.body;
+var iddelete=req.body._id
+console.log(iddelete);
+var del=prodDet.deleteOne({ '_id': iddelete },function (err, c){
+
+res.send({ message: 'Item Deleted !' })
+});
 });
 
 app.route('/api')

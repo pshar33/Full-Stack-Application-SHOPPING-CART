@@ -20,43 +20,17 @@ selectedBook: Book = new Book();
   getBooks(){
     
  return this.http.get("http://localhost:8080/Items");
- 
+  
   });
   }
+  
+  
+  }
+  
+  
   /*
-  insertBook(book: Book){
-  this.http.post('http://localhost:8080/add',
-  { description : book.description },
-  { price : book.price },
-  { quantity : book.quantity }).subscribe(
-    res=> {
-      console.log(res);
-    },
-    err=> {
-      console.log('error occured');
-    }
-
-    );
-    console.log( this.newBook + 'added to the database !!');
-
-  }
-  
-  }
-  
-  updateBook(book: Book){
-    this.bookList.update(book.$key,{
- availability: book.availability,
- comments: book.comments,
- description: book.description,
- image: book.image,
- name: book.name,
- quantity: book.quantity,
- rating: book.rating
-    });
-  }
-
   deleteBook($key : string){
   this.bookList.remove($key);
   }
-  */
+*/  
 }

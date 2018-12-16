@@ -1,29 +1,29 @@
 <div>      
-<label>Name</label>
-<input  name="name" #name="ngModel" [(ngModel)]="bookService.selectedBook.name" placeholder="Book name">
+<label>Description</label>
+<input  name="description" [(ngModel)]="description"  placeholder="Book name">
 </div>                    
 <div>          
 <label>Quantity</label>        
-<input  name="quantity" #quantity="ngModel" [(ngModel)]="bookService.selectedBook.quantity" placeholder="quantity">
+<input  name="quantity" [(ngModel)]="quantity" placeholder="quantity">
 </div>                    
 <div >         
 <label>Price</label>     
-<input  name="price" #price="ngModel" [(ngModel)]="bookService.selectedBook.price" placeholder="price">
+<input  name="price" [(ngModel)]="price" placeholder="price">
 </div>      
 <div >       
-<button  type="submit" (click)="onSubmit()">Submit</button>           
-
+<button  type="submit" (click)="addbook()">Submit</button>           
+</div>
 
 <table>
-  <tr ng-repeat="book in MyData">
-    <td>{{ book.name }}</td>
-    <td>{{ book.price }}</td>
-    <td>{{ book.quantity }}</td>
-    <td><button  type="submit" (click)="onSubmit()">Update</button></td>
-    <td><button  type="submit" (click)="onSubmit()">Delete</button></td>
+  <tr *ngFor='let book of books'>
+    <td>{{ book.description }}</td>
+    <td><input type="text" [(ngModel)]="book.price" value="{{book.price}}" /></td>
+    <td><input type="text" [(ngModel)]="book.quantity" value="{{book.quantity}}" /></td>
+    <td><button  (click)="updatebookDetails(book)">Update</button></td>
+    <td><button  (click)="deletebook(book)">Delete</button></td>
   </tr>
 </table>
-</div>    
+    
 <div>
 <label>Username</label>
 <input type="email" [(ngModel)]="username" required>

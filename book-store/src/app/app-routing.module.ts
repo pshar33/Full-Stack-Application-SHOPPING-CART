@@ -14,7 +14,7 @@ const routes : Routes=[
 { path : 'book-detail', component: BookDetailComponent },
 { path : 'login', component: LoginComponent },
 { path : 'authenticated-user', component: AuthenticatedUserComponent },
-{ path : 'manager', component: ManagerComponent }
+{ path : 'manager', component: ManagerComponent },
 { path : 'oneproduct', component: OneproductComponent }
 
 ];
