@@ -20,12 +20,13 @@ review:String;
   constructor(private bookService: BookService,,private http: HttpClient) { }
 
   ngOnInit() {
+  //getting the reviews,ratings for any user
   this.bookService.getrev()
      .subscribe(users => {this.users = users});
 
 
   }
-
+  // add a review,rating functionality for any registered user
   addreview(name,rating,review){
   console.log(this.review);
    console.log(this.name);
