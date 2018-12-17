@@ -19,6 +19,7 @@ quantity: String;
   constructor(private bookService: BookService,private http: HttpClient) { }
             
   ngOnInit() {
+  //calling bookService to get the books from the database
   this.bookService.getBooks()
      .subscribe(books =>
      //console.log(books);
@@ -27,7 +28,7 @@ quantity: String;
   }     
 
 
-
+  //function to add a new book to the database for the manager
   addbook(){
   //console.log(this.description);
  this.http.post("http://localhost:8080/add",
@@ -42,7 +43,7 @@ quantity: String;
 
   }
 
-  
+  //function to update the books quantity and price for the manager
   updatebookDetails(book:Book){
   //console.log(book._id,book.price);
   this.http.put("http://localhost:8080/update" ,
@@ -57,7 +58,8 @@ quantity: String;
   );
   
   }
-  
+
+  //function to delete any book from the database for the manager
   deletebook(book:Book){
   console.log(book.description);
   this.http.post("http://localhost:8080/delete" ,

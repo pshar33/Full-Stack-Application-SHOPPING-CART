@@ -13,11 +13,14 @@
 
 
 </div>
-
+<!--two buttons for signup and login respectively -->
 <button type= "submit"  (click)="newUser(username,password)">Signup</button>
 <button type= "submit"  (click)="oldUser(username,password)">Login</button>
 <button type= "submit"  routerLink="/manager">Manager</button>
 
 
 </div>
+
+
+<!-- this tag is used to navigate to manager if manager button is clicked above-->
 <router-outlet></router-outlet>

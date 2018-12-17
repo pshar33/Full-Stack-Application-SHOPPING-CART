@@ -27,13 +27,19 @@ password: String;
   }
 
   newUser(username,password){
-  
+
+  //email validation for the email that the user enters for signing up
+  //email validation is used before the user is allowed to successfully signup
   var verified=/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/;
   var isemailvalid=verified.test(username)
   
   if(isemailvalid==false){
   alert("email not valid");
   }
+
+  //password validation for password entered by user
+  //if password is greater than 6 an alert window is shown to the user.
+
 
   if(password.length<6){
     alert("password not valid");
@@ -53,6 +59,9 @@ password: String;
                     });
             });
 }
+
+//this is the functionality for a registered user for logging in
+
             oldUser(username,password){
             
         this.authorize.auth.signInWithEmailAndPassword(username, password)
@@ -61,7 +70,9 @@ password: String;
 
          const verifieduser = firebase.auth().currentUser;
                      if (verifieduser.emailVerified) {
-                    this.routing.navigate(['/authenticated-user']);
+                    this.routing.navigate(['/authenticated-user']);  //if user is verified and authorized he/she
+                                                                       //will be navigated to the shopping cart page 
+                    
                     localStorage.setItem('email',firebase.auth().currentUser);
                     console.log('Login successful !!');
                 }

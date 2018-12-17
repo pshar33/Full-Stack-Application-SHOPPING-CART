@@ -1,4 +1,8 @@
-<div>      
+<div>
+
+<!--giving 3 input field of name, quantity and price to
+allow manager to add a new book to the database -->
+
 <label>Description</label>
 <input  name="description" [(ngModel)]="description"  placeholder="Book name">
 </div>                    
@@ -15,6 +19,10 @@
 </div>
 
 <table>
+
+<!--creating a table for allowing the manager to update
+and delete the price and quantity of books in database  -->
+
   <tr *ngFor='let book of books'>
     <td>{{ book.description }}</td>
     <td><input type="text" [(ngModel)]="book.price" value="{{book.price}}" /></td>
@@ -23,6 +31,8 @@
     <td><button  (click)="deletebook(book)">Delete</button></td>
   </tr>
 </table>
+
+
     
 <div>
 <label>Username</label>

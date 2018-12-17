@@ -21,25 +21,17 @@ review:String;
 
   ngOnInit() {
   this.bookService.getrev()
-     .subscribe(users => {
-     this.userdetails = users;
-     const filtered = this.users.filter(function(user){
-        return user.product ;
-     });
-     this.users = filtered;
-
-     });
+     .subscribe(users => {this.users = users});
 
 
   }
 
-  addreview(name,rating,review,product){
+  addreview(name,rating,review){
   console.log(this.review);
    console.log(this.name);
     console.log(this.rating);
  this.http.post("http://localhost:8080/addreview",
-  {product: this.product,
-  name : this.name ,
+  { name : this.name ,
    rating : this.rating ,
    review : this.review }).subscribe(
     res=> {

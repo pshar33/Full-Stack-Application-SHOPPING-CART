@@ -26,10 +26,18 @@ books: Book[];
 
   }
 
+
+  /* user can select any book with this onSelect
+  functionality shown below to view details of that book
+  */
+
   selectedBook: Book;
 onSelect(book: Book): void {
   this.selectedBook = book;
 }
+
+
+
 
 //getBooks(): void {
  //this.bookService.getBooks()

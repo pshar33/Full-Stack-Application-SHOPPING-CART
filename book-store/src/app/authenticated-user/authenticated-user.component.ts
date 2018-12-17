@@ -35,10 +35,13 @@ else{
 }
 
 
-
+//functionality to add quantity of books in the cart for the user.
     
     increaseCartItemQuantity(book: selectedprod){
-    if(book.quantity<book.availability){
+
+    //stock level updation, with every increment in quantity availability is decremented
+
+    if(book.quantity<book.availability && book.quantity>0 && book.availability>0){                  
     book.quantity = parseInt(book.quantity) + 1;
     book.availability=book.availability-1;
         }
@@ -48,8 +51,17 @@ else{
         
     }
 
+    removeCartItem(book:selectedprod){
+    this.selectedprod.splice(book,1);
+
+    }
+//functionality to decrement quantity of books in the cart for the user.
+
     decreaseCartItemQuantity(book: selectedprod) {
-    if(book.availability>0 && book.quantity<book.availability){
+
+    //stock level updation, with every increment in quantity availability is decremented
+
+    if(book.availability>0 && book.quantity<book.availability && book.quantity>0 && book.availability>0){
     book.quantity = book.quantity - 1;
     book.availability=parseInt(book.availability)+1;
         }
@@ -59,11 +71,6 @@ else{
         
     }
 
-    BuyCart(book: selectedprod){
-    var grandtotal=0;
-    for(var i=0;i<=selectedprod;i++){
-    grandtotal+=book.price*book.quantity;
-    }
-    console.log(grandtotal);
-    }
+    BuyCart(){
+   this.selectedprod=[];
 }

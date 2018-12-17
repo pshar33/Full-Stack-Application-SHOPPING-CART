@@ -72,7 +72,7 @@ var userprod = new userDet();
    userprod.rating = req.body.rating;
    userprod.review = req.body.review;
    userprod.name = req.body.name;
-   userprod.product = req.body.product;
+   
 console.log(userprod);   
    userprod.save(function (err) {
        if (err) {
