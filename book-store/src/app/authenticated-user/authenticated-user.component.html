@@ -61,6 +61,7 @@
 <table >
     <tr>
         <th>Description</th>
+        <th>Availability</th>
         <th>Quantity</th>
         <th>Price</th>
         <th>Net Price</th>
@@ -68,6 +69,7 @@
     </tr>
     <tr *ngFor='let book of books' (click)="onSelect(book)">
     <td>{{book.description}}</td>
+    <td>{{book.availability}}</td>
         <td><input type="text" [(ngModel)]="book.quantity" value="{{book.quantity}}"/></td>
         <td>{{book.price}}</td>
         <td>{{book.price * book.quantity}}</td>
@@ -79,6 +81,7 @@
 <table >
     <tr>
         <th>Description</th>
+        <th>Availability</th>
         <th>Quantity</th>
         <th>Price</th>
         <th>Net Price</th>
@@ -86,6 +89,7 @@
     </tr>
     <tr *ngFor='let book of selectedprod'>
         <td>{{book.description}}</td>
+        <td>{{book.availability}}</td>
         <td><input type="text" [(ngModel)]="book.quantity" value="{{book.quantity}}"/></td>
         <td>{{book.price}}</td>
         <td>{{book.price * book.quantity}}</td>

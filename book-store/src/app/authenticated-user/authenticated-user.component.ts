@@ -9,7 +9,7 @@ import { BookService   } from '../book.service';
 })
 export class AuthenticatedUserComponent implements OnInit {
 books: Book[];
-selectedprod :Array<{description: String ,price:String,quantity: String}>=[];
+selectedprod :Array<{description: String ,price:String,quantity: String,availability: String}>=[];
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
@@ -25,32 +25,45 @@ onSelect(book: Book): void {
 }
 
 addBook(book){
-this.selectedprod.push({description:book.description, price:book.price,quantity:book.quantity});
+if(book.availability>0 && book.quantity<book.availability){
+this.selectedprod.push({description:book.description, price:book.price,quantity:book.quantity,availability:book.availability});
+book.availability=book.availability-book.quantity;
+}
+else{
+  console.log("qty inadequate");
+}
 }
 
 
-removeCartItem(book: selectedprod) {
-        
-    }
+
     
     increaseCartItemQuantity(book: selectedprod){
-        book.quantity = parseInt(book.quantity) + 1;
-        
-
+    if(book.quantity<book.availability){
+    book.quantity = parseInt(book.quantity) + 1;
+    book.availability=book.availability-1;
+        }
+else{
+  console.log("qty inadequate");
+}
         
     }
 
     decreaseCartItemQuantity(book: selectedprod) {
-        book.quantity = book.quantity - 1;
-        
-
+    if(book.availability>0 && book.quantity<book.availability){
+    book.quantity = book.quantity - 1;
+    book.availability=parseInt(book.availability)+1;
+        }
+        else{
+  console.log("qty inadequate");
+}
         
     }
 
     BuyCart(book: selectedprod){
-    while(book.length>0){
-      book=this.book.splice(0,1);
+    var grandtotal=0;
+    for(var i=0;i<=selectedprod;i++){
+    grandtotal+=book.price*book.quantity;
     }
-    console.log("Buying Successful !!");
+    console.log(grandtotal);
     }
 }

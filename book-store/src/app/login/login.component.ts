@@ -50,6 +50,7 @@ password: String;
          const verifieduser = firebase.auth().currentUser;
                      if (verifieduser.emailVerified) {
                     this.routing.navigate(['/authenticated-user']);
+                    localStorage.setItem('email',firebase.auth().currentUser);
                     console.log('Login successful !!');
                 }
                 else {
