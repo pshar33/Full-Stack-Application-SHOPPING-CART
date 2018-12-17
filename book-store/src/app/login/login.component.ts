@@ -28,6 +28,18 @@ password: String;
 
   newUser(username,password){
   
+  var verified=/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/;
+  var isemailvalid=verified.test(username)
+  
+  if(isemailvalid==false){
+  alert("email not valid");
+  }
+
+  if(password.length<6){
+    alert("password not valid");
+
+  }
+
           firebase.auth().createUserWithEmailAndPassword(username, password)
                     .then(res => {
                 firebase.auth().signInWithEmailAndPassword(username, password)
@@ -42,7 +54,7 @@ password: String;
             });
 }
             oldUser(username,password){
-            debugger;
+            
         this.authorize.auth.signInWithEmailAndPassword(username, password)
             .then((user) => {
             this.exist = user
@@ -58,7 +70,7 @@ password: String;
                 }
             })
 
-
+            
             .catch(err => {
                 console.log('Click on Signup first !!');
             });
