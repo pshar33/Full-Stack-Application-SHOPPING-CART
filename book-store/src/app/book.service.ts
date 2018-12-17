@@ -21,10 +21,17 @@ selectedBook: Book = new Book();
     
  return this.http.get("http://localhost:8080/Items");
   
-  });
+  }
+  
+  getrev(){
+    
+ return this.http.get("http://localhost:8080/getreview");
+  
   }
   
   
   }
-  
+
+    
+
 }

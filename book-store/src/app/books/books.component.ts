@@ -17,17 +17,7 @@ books: Book[];
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
-   /*var a=  this.bookService.getBooks()
-   .snapshotChanges().subscribe(
-     product=>{
-       this.books=[];
-       product.forEach(x => {
-         var y= x.payload.toJSON();
-         y["$key"] = x.key;
-         this.books.push(y as Book);
-     
-     
-    */
+   
      this.bookService.getBooks()
      .subscribe(books => {this.books = books});
        

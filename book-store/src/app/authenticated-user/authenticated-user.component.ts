@@ -30,7 +30,7 @@ this.selectedprod.push({description:book.description, price:book.price,quantity:
 
 
 removeCartItem(book: selectedprod) {
-        book.delete();
+        
     }
     
     increaseCartItemQuantity(book: selectedprod){
@@ -46,5 +46,11 @@ removeCartItem(book: selectedprod) {
 
         
     }
-    
+
+    BuyCart(book: selectedprod){
+    while(book.length>0){
+      book=this.book.splice(0,1);
+    }
+    console.log("Buying Successful !!");
+    }
 }

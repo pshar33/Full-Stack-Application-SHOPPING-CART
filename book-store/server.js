@@ -4,6 +4,7 @@ app.use('/', express.static('static'));
 var mongoose = require('mongoose');
 var db = mongoose.connection;
 var prodDet = require('./product');
+var userDet = require('./src/app/users');
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
     extended: true
@@ -53,34 +54,36 @@ app.post('/add', function (req, res) {
    })
 
 });
-/*
+
 app.get('/getreview', function (req, res) {
 
-  var products = prodDet.find(function (err, products) {
+  var summary = userDet.find(function (err, summary) {
       if (err) {
           res.send(err);
       }
-      res.send(products);
-      console.log(products);
+      res.send(summary);
+      console.log(summary);
   });
 })
 
 app.post('/addreview', function (req, res) {
-   var newprod = new prodDet();
-   newprod.rating = req.body.rating;
-   newprod.review = req.body.review;
-   
 
-   newprod.save(function (err) {
+var userprod = new userDet();
+   userprod.rating = req.body.rating;
+   userprod.review = req.body.review;
+   userprod.name = req.body.name;
+   userprod.product = req.body.product;
+console.log(userprod);   
+   userprod.save(function (err) {
        if (err) {
            res.send(err);
        }
-       res.send({ message: 'Product Reviewed !' })
+       res.send({ message: 'Ratings and reviews added !' })
    })
 
 });
 
-*/
+
 app.put('/update', function (req, res) {
 //console.log('hi');
 //console.log(req.body._id);

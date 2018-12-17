@@ -2,12 +2,30 @@
   <div><span>description: </span>{{book.description}}</div>
   <div><span>price: </span>{{book.price}}</div>
 <div>
+<label>Name</label>
+<input type="text" [(ngModel)]="name" required>
+
+</div>
+<div>
 <label>Give Ratings</label>
-<input type="number" [(ngModel)]="ratings" required>
+<input type="number" [(ngModel)]="rating" required>
 
 </div>
 <div>
 <label>Give Review</label>
-<input type="text"  [(ngModel)]="comments" required>
+<input type="text"  [(ngModel)]="review" required>
+<button (click)="addreview(name,rating,review)">Submit</button>
 
+<ul class="users">
+  <li  *ngFor="let user of users">
+  
+       <span class="badge">{{user.product}}</span><br>
+
+     <span class="badge">{{user.name}}</span><br>
+     <span class="badge">{{user.rating}}</span><br>
+     <span class="badge">{{user.review}}</span>
+
+     
+  </li>
+</ul>
 </div>
